@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.9.34414.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Poker.Equity", "Poker.Equity\Poker.Equity.vcxproj", "{E7862099-FB93-416C-88FA-E072FD894E41}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A4DEF05E-E072-493E-B282-84731D60BCF0} = {A4DEF05E-E072-493E-B282-84731D60BCF0}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Poker.Equity.Test", "Poker.Equity.Test\Poker.Equity.Test.vcxproj", "{BDBF32F5-4D8A-4506-8EF8-13EB8D675EBC}"
 EndProject
