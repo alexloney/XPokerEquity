@@ -16,10 +16,10 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: build-artifact
-          path:
-            - build/libPokerEquity.so
-            - build/libPokerEval.a
-            - build/PokerEquityTest
+          path: |
+            build/libPokerEquity.so
+            build/libPokerEval.a
+            build/PokerEquityTest
           retention-days: 1
 
   test:
