@@ -11,7 +11,7 @@ jobs:
           mkdir build
           cd build
           cmake ..
-          cmake
+          make
 
   test:
     runs-on: ubuntu-latest
