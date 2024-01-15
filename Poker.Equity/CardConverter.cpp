@@ -18,7 +18,7 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-#include "StdAfx.h"
+#include "stdafx.h"
 #include "CardConverter.h"
 
 StdDeck_CardMask CardConverter::PokerEvalCards[53] = 

@@ -19,7 +19,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 
-#include "StdAfx.h"
+#include "stdafx.h"
 #include "HoldemCalculator.h"
 #include "HoldemHandDistribution.h"
 #include "CardConverter.h"
