@@ -20,6 +20,8 @@
 
 #pragma once
 
+#include <string>
+
 ///////////////////////////////////////////////////////////////////////////////
 // A distribution containing one or more specific Hold'em hands. We create
 // one of these for each player involved in the matchup, EVEN IF THE PLAYER
@@ -54,7 +56,7 @@ private:
 	static bool CardMaskEqual( StdDeck_CardMask a, StdDeck_CardMask b );
 	HoldemHandDistribution* Next() const { return m_pNext; }
 
-	string m_handText;
+	std::string m_handText;
 	HoldemHandDistribution* m_pNext;
 	vector<StdDeck_CardMask> m_hands;
 	StdDeck_CardMask m_current;

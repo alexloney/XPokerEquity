@@ -1,17 +1,13 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Poker.Equity", "Poker.Equity\Poker.Equity.vcproj", "{E7862099-FB93-416C-88FA-E072FD894E41}"
-	ProjectSection(ProjectDependencies) = postProject
-		{A4DEF05E-E072-493E-B282-84731D60BCF0} = {A4DEF05E-E072-493E-B282-84731D60BCF0}
-	EndProjectSection
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34414.90
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Poker.Equity", "Poker.Equity\Poker.Equity.vcxproj", "{E7862099-FB93-416C-88FA-E072FD894E41}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Poker.Equity.Test", "Poker.Equity.Test\Poker.Equity.Test.vcproj", "{BDBF32F5-4D8A-4506-8EF8-13EB8D675EBC}"
-	ProjectSection(ProjectDependencies) = postProject
-		{E7862099-FB93-416C-88FA-E072FD894E41} = {E7862099-FB93-416C-88FA-E072FD894E41}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Poker.Equity.Test", "Poker.Equity.Test\Poker.Equity.Test.vcxproj", "{BDBF32F5-4D8A-4506-8EF8-13EB8D675EBC}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "poker-eval", "Poker.PokerEval\poker-eval.vcproj", "{A4DEF05E-E072-493E-B282-84731D60BCF0}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "poker-eval", "Poker.PokerEval\poker-eval.vcxproj", "{A4DEF05E-E072-493E-B282-84731D60BCF0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,5 +37,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8E3D5334-9F5F-4581-B070-1816EB79428F}
 	EndGlobalSection
 EndGlobal
