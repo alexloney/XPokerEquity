@@ -12,11 +12,24 @@ jobs:
           cd build
           cmake ..
           make
+      - name: Store Build
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-artifact
+          path:
+            - build/libPokerEquity.so
+            - build/libPokerEval.a
+            - build/PokerEquityTest
+          retention-days: 1
 
   test:
     runs-on: ubuntu-latest
     needs: [build]
     steps:
+      - name: Load Build
+        uses: actions/download-artifact@v2
+        with:
+          name: build-artifact
       - name: Test
         run: |
           build/PokerEquityTest
