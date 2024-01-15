@@ -21,6 +21,7 @@
 #pragma once
 
 #include "Poker.Equity.h"
+#include "stdafx.h"
 
 class HoldemHandDistribution;
 
@@ -93,29 +94,33 @@ class HoldemHandDistribution;
 //
 ///////////////////////////////////////////////////////////////////////////////
 
+#ifdef WIN32
 class POKEREQUITY_API HoldemCalculator
+#else
+class HoldemCalculator
+#endif
 {
 public:
 	HoldemCalculator();
 	virtual ~HoldemCalculator();
 
 	// Calculate using either Monte Carlo or exhaustive enumeration.
-	int Calculate(const char* hands, const char* board, const char* dead, __int64 numberOfTrials, double* results);
+	int Calculate(const char* hands, const char* board, const char* dead, int64_t numberOfTrials, double* results);
 
 	// Calculate using Monte Carlo only.
-	int CalculateMC(const char* hands, const char* board, const char* dead, __int64 numberOfTrials, double* results);
+	int CalculateMC(const char* hands, const char* board, const char* dead, int64_t numberOfTrials, double* results);
 
 	// Calculate using exhaustive enumeration only.
 	int CalculateEE(const char* hands, const char* board, const char* dead, double* results);
 
 	// Get/set the "Monte Carlo" threshhold, the number of outcomes above which
-	void SetMCThreshhold(unsigned __int64 t);
-	unsigned __int64 GetMCThreshhold() const;
+	void SetMCThreshhold(uint64_t t);
+	uint64_t GetMCThreshhold() const;
 
 private:
 
 	void	PreCalculate(const char* hands, const char* board, const char* dead, int numberOfTrials, double* results);
-	__int64	PostCalculate();
+	int64_t	PostCalculate();
 
 	int		CalculateExhaustive();
 	int		CalculateMonteCarlo();
@@ -128,8 +133,8 @@ private:
 	int		CreateHandDistributions(const char* hands);
 	bool	IsDeterministic();
 	void	LinkHandDistributions();
-	unsigned __int64 EstimatePossibleOutcomes();
-	unsigned __int64 CalculateCombinations(int N, int R);
+	uint64_t EstimatePossibleOutcomes();
+	uint64_t CalculateCombinations(int N, int R);
 
 	StdDeck_CardMask m_boardMask;
 	StdDeck_CardMask m_deadMask;
@@ -140,10 +145,10 @@ private:
 	int m_totalHands;
 	int m_collisions;
 	double* m_pResults;
-	unsigned __int64 m_indicatedTrials;
-	unsigned __int64 m_actualTrials;
-	unsigned __int64 m_possibleOutcomes;
-	unsigned __int64 m_MonteCarloThreshhold;
+	uint64_t m_indicatedTrials;
+	uint64_t m_actualTrials;
+	uint64_t m_possibleOutcomes;
+	uint64_t m_MonteCarloThreshhold;
 	vector<HoldemHandDistribution*> m_dists;
 	double m_wins[23];
 	int m_handVals[23];

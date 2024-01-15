@@ -22,7 +22,11 @@
 
 #include "Poker.Equity.h"
 
+#ifdef WIN32
 class POKEREQUITY_API Card
+#else
+class Card
+#endif
 {
 public:
 	Card(void);

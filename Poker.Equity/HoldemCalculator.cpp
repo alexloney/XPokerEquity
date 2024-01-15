@@ -49,7 +49,7 @@ HoldemCalculator::~HoldemCalculator(void)
 // Calculate equities for the specified matchup using either Monte Carlo
 // or Exhaustive Enumeration.
 ///////////////////////////////////////////////////////////////////////////////
-int HoldemCalculator::Calculate(const char* hands, const char* board, const char* dead, __int64 trialCount, double* outResults)
+int HoldemCalculator::Calculate(const char* hands, const char* board, const char* dead, int64_t trialCount, double* outResults)
 {
 	PreCalculate(hands, board, dead, trialCount, outResults);
 
@@ -67,7 +67,7 @@ int HoldemCalculator::Calculate(const char* hands, const char* board, const char
 // Calculate equities for the specified matchup using Monte Carlo. ALWAYS
 // uses Monte Carlo, even if the number of possible combinations is low.
 ///////////////////////////////////////////////////////////////////////////////
-int HoldemCalculator::CalculateMC(const char* hands, const char* board, const char* dead, __int64 numberOfTrials, double* results)
+int HoldemCalculator::CalculateMC(const char* hands, const char* board, const char* dead, int64_t numberOfTrials, double* results)
 {
 	PreCalculate(hands, board, dead, numberOfTrials, results);
 	CalculateMonteCarlo();
@@ -358,7 +358,7 @@ void HoldemCalculator::EvalOneTrial
 // Once the simulation has been run, this little helper function takes each
 // player's win counts and converts these into equity/win percentage.
 ///////////////////////////////////////////////////////////////////////////////
-__int64 HoldemCalculator::PostCalculate()
+int64_t HoldemCalculator::PostCalculate()
 {
 	int totalPlayers = m_dists.size();
 	memset(m_pResults, 0, sizeof(double) * totalPlayers);
@@ -528,16 +528,16 @@ int HoldemCalculator::CalculateMonteCarlo(void)
 // wide, it shouldn't matter so much and when they're not, it's likely
 // that we can exhaustively enumerate anyway.
 ///////////////////////////////////////////////////////////////////////////////
-unsigned __int64 HoldemCalculator::EstimatePossibleOutcomes()
+uint64_t HoldemCalculator::EstimatePossibleOutcomes()
 {
-	unsigned __int64 last = 1;
-	unsigned __int64 total = 1;
+	uint64_t last = 1;
+	uint64_t total = 1;
 
 	for (int hand = 0; hand < m_dists.size(); hand++)
 	{
 		total *= m_dists[hand]->GetCount();
 		if (last > total) // overflow
-			return _UI64_MAX;
+			return UINT64_MAX;
 		last = total;
 	}
 
@@ -545,7 +545,7 @@ unsigned __int64 HoldemCalculator::EstimatePossibleOutcomes()
 
 	//TRACE("Estimated combinations: %I64d\n", total);
 
-	return (total < last) ? _UI64_MAX :	total;
+	return (total < last) ? UINT64_MAX :	total;
 }
 
 
@@ -555,9 +555,9 @@ unsigned __int64 HoldemCalculator::EstimatePossibleOutcomes()
 // The only place this is used is to estimate how many possible outcomes
 // we're dealing with in situations involving exhaustive enumeration.
 ///////////////////////////////////////////////////////////////////////////////
-unsigned __int64 HoldemCalculator::CalculateCombinations(int N, int R)
+uint64_t HoldemCalculator::CalculateCombinations(int N, int R)
 {
-    unsigned __int64 answer = 1;
+    uint64_t answer = 1;
 	int multiplier = N;
 	int divisor = 1;
 	int k = min(N, N - R);
@@ -581,7 +581,7 @@ unsigned __int64 HoldemCalculator::CalculateCombinations(int N, int R)
 // HoldemCalculator::Calculate observes this value. HoldemCalculator::CalculateMC
 // and HoldemCalculator::CalculateEE ignore it.
 ///////////////////////////////////////////////////////////////////////////////
-void HoldemCalculator::SetMCThreshhold(unsigned __int64 t)
+void HoldemCalculator::SetMCThreshhold(uint64_t t)
 {
 	m_MonteCarloThreshhold = t;
 }
@@ -594,7 +594,7 @@ void HoldemCalculator::SetMCThreshhold(unsigned __int64 t)
 // HoldemCalculator::Calculate observes this value. HoldemCalculator::CalculateMC
 // and HoldemCalculator::CalculateEE ignore it.
 ///////////////////////////////////////////////////////////////////////////////
-unsigned __int64 HoldemCalculator::GetMCThreshhold() const
+uint64_t HoldemCalculator::GetMCThreshhold() const
 { 
 	return m_MonteCarloThreshhold;
 }
