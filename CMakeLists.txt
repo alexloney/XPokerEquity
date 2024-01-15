@@ -39,6 +39,7 @@ add_library(PokerEval STATIC
 	Poker.PokerEval/lib/t_toptwobits.c)
 target_include_directories(PokerEval PRIVATE Poker.PokerEval/include)
 set_target_properties(PokerEval PROPERTIES LINKER_LANGUAGE C)
+set_target_properties(PokerEval PROPERTIES POSITION_INDEPENDENT_CODE ON)
 
 add_library(PokerEquity SHARED
 	Poker.Equity/AgnosticHand.cpp
@@ -54,8 +55,13 @@ add_library(PokerEquity SHARED
 target_include_directories(PokerEquity PRIVATE Poker.PokerEval/include)
 target_include_directories(PokerEquity PRIVATE Poker.PokerEval/inlines)
 set_target_properties(PokerEquity PROPERTIES LINKER_LANGUAGE CXX)
+target_link_libraries(PokerEquity PRIVATE PokerEval)
 
-# target_link_libraries(PokerEquity PRIVATE PokerEval)
-
-# add_library(PokerEquityTest
-# 	)
+add_executable(PokerEquityTest
+	Poker.Equity/PGTRACE.CPP
+	Poker.Equity.Test/Poker.Equity.Test.cpp
+	Poker.Equity.Test/stdafx.cpp)
+set_target_properties(PokerEquityTest PROPERTIES LINKER_LANGUAGE CXX)
+target_link_libraries(PokerEquityTest PRIVATE PokerEquity)
+target_include_directories(PokerEquityTest PRIVATE Poker.PokerEval/include)
+target_include_directories(PokerEquityTest PRIVATE Poker.PokerEval/inlines)
