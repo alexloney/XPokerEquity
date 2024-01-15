@@ -32,4 +32,5 @@ jobs:
           name: build-artifact
       - name: Test
         run: |
+          ls -larth
           build/PokerEquityTest
