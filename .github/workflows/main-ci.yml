@@ -33,5 +33,5 @@ jobs:
           path: build
       - name: Test
         run: |
-          ls -larth
+          chmod +x build/PokerEquityTest
           build/PokerEquityTest
