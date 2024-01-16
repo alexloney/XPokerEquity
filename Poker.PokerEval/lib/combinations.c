@@ -1,25 +1,26 @@
-/* $Id: combinations.c 1024 2006-04-22 20:49:41Z loic $
+/* $Id: combinations.c 5439 2009-01-02 10:53:19Z loic $
    Combinations (N choose R).
 
    Provides an enumeration of all (N choose R) combinations of R elements from
    a set of N.  The get_combination() function returns a specific combination
    as an integer array with R elements in [0..N-1].
 
-   Michael Maurer, Jun 2002
-
- *  This package is free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; version 2 dated June, 1991.
+   Copyright (C) Jun 2002, Michael Maurer.
  *
- *  This package is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
+ * This program gives you software freedom; you can copy, convey,
+ * propagate, redistribute and/or modify this program under the terms of
+ * the GNU General Public License (GPL) as published by the Free Software
+ * Foundation (FSF), either version 3 of the License, or (at your option)
+ * any later version of the GPL published by the FSF.
  *
- *  You should have received a copy of the GNU General Public License
- *  along with this package; if not, write to the Free Software
- *  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
- *  MA 02110-1301, USA.
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along
+ * with this program in a file in the toplevel directory called "GPLv3".
+ * If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include <stdio.h>
@@ -91,7 +92,8 @@ init_combinations(int nuniv, int nelem)
         break;
       }
     }
-    if (firstIncr == -1) { printf("BUG!\n"); exit(1); }
+    if (firstIncr == -1) 
+      return NULL;
     for (i=0; i<firstIncr; i++)
       combo->combos[i][j] = combo->combos[i][j-1];
     for (i=firstIncr+1; i<combo->nelem; i++)

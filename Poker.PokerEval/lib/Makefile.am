@@ -1,24 +1,24 @@
 #
 # Copyright (C) 2004-2006 Mekensleep
 #
-# Mekensleep
-# 24 rue vieille du temple
-# 75004 Paris
-#       licensing@mekensleep.com
+# Mekensleep <licensing@mekensleep.com>
+# 24 rue vieille du temple, 75004 Paris
+#       
 #
-#  This package is free software; you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License as published by
-#  the Free Software Foundation; version 2 dated June, 1991.
+# This program gives you software freedom; you can copy, convey,
+# propagate, redistribute and/or modify this program under the terms of
+# the GNU General Public License (GPL) as published by the Free Software
+# Foundation (FSF), either version 3 of the License, or (at your option)
+# any later version of the GPL published by the FSF.
 #
-#  This package is distributed in the hope that it will be useful,
-#  but WITHOUT ANY WARRANTY; without even the implied warranty of
-#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#  GNU General Public License for more details.
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
 #
-#  You should have received a copy of the GNU General Public License
-#  along with this package; if not, write to the Free Software
-#  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
-#  MA 02110-1301, USA.
+# You should have received a copy of the GNU General Public License along
+# with this program in a file in the toplevel directory called "GPLv3".
+# If not, see <http://www.gnu.org/licenses/>.
 #
 # Authors:
 #  Loic Dachary <loic@dachary.org>
@@ -126,11 +126,11 @@ evx_gen7_SOURCES = evx_generate.c
 evx_gen7_CPPFLAGS = -DCARDS_DEALT=7
 
 all-local: evx_gen5 evx_gen7 evx_preamble.cfrag
-	if [ -w $(top_srcdir)/include/inlines/evx5.h ] ; then \
-		./evx_gen5 > $(top_srcdir)/include/inlines/evx5.h ; \
+	if [ -w "$(top_srcdir)/include/inlines/evx5.h" ] ; then \
+		./evx_gen5 "$(srcdir)" > "$(top_srcdir)/include/inlines/evx5.h" ; \
 	fi
-	if [ -w $(top_srcdir)/include/inlines/evx7.h ] ; then \
-		./evx_gen7 > $(top_srcdir)/include/inlines/evx7.h ; \
+	if [ -w "$(top_srcdir)/include/inlines/evx7.h" ] ; then \
+		./evx_gen7 "$(srcdir)" > "$(top_srcdir)/include/inlines/evx7.h" ; \
 	fi
 
 clean-local:

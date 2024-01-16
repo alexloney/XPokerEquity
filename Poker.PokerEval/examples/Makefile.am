@@ -1,4 +1,5 @@
 #
+# Copyright (C) 2004-2010 Loic Dachary <loic@dachary.org>
 # Copyright (C) 2004-2006 Mekensleep
 #
 # Mekensleep
@@ -6,19 +7,20 @@
 # 75004 Paris
 #       licensing@mekensleep.com
 #
-#  This package is free software; you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License as published by
-#  the Free Software Foundation; version 2 dated June, 1991.
+# This program gives you software freedom; you can copy, convey,
+# propagate, redistribute and/or modify this program under the terms of
+# the GNU General Public License (GPL) as published by the Free Software
+# Foundation (FSF), either version 3 of the License, or (at your option)
+# any later version of the GPL published by the FSF.
 #
-#  This package is distributed in the hope that it will be useful,
-#  but WITHOUT ANY WARRANTY; without even the implied warranty of
-#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#  GNU General Public License for more details.
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
 #
-#  You should have received a copy of the GNU General Public License
-#  along with this package; if not, write to the Free Software
-#  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
-#  MA 02110-1301, USA.
+# You should have received a copy of the GNU General Public License along
+# with this program in a file in the toplevel directory called "GPLv3".
+# If not, see <http://www.gnu.org/licenses/>.
 #
 # Authors:
 #  Loic Dachary <loic@dachary.org>
@@ -28,7 +30,18 @@ MAINTAINERCLEANFILES = Makefile.in
 
 INCLUDES = -I$(top_srcdir)/include
 
-EXTRA_DIST = utest1 getopt_w32.c getopt_w32.h $(wildcard *.vcproj) 
+EXTRA_DIST = \
+	utest1 \
+	getopt_w32.c \
+	getopt_w32.h \
+	eval.vcproj \
+	fish.vcproj \
+	five_card_hands.vcproj \
+	hcmp2.vcproj \
+	hcmpn2.vcproj \
+	pokenum.vcproj \
+	seven_card_hands.vcproj \
+	usedecks.vcproj
 
 #TESTS = utest1
 

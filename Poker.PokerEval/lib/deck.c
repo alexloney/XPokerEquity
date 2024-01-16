@@ -4,27 +4,34 @@
  *                 Loic Dachary <loic@dachary.org>, 
  *                 Tim Showalter <tjs@psaux.com>
  *
- *  This package is free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; version 2 dated June, 1991.
+ * This program gives you software freedom; you can copy, convey,
+ * propagate, redistribute and/or modify this program under the terms of
+ * the GNU General Public License (GPL) as published by the Free Software
+ * Foundation (FSF), either version 3 of the License, or (at your option)
+ * any later version of the GPL published by the FSF.
  *
- *  This package is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * General Public License for more details.
  *
- *  You should have received a copy of the GNU General Public License
- *  along with this package; if not, write to the Free Software
- *  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
- *  MA 02110-1301, USA.
+ * You should have received a copy of the GNU General Public License along
+ * with this program in a file in the toplevel directory called "GPLv3".
+ * If not, see <http://www.gnu.org/licenses/>.
  */
 #include <stdio.h>
 #include "poker_defs.h"
 
+/*
+ * This number MUST be higher than any of the *_N_CARDS constants
+ * listed in the *_deck.h files in the include directory, 52 for
+ * a standard deck for instance. 
+ */
+#define STRING_CARDS 100
 
 int
 GenericDeck_maskToString(Deck *deck, void *cardMask, char *outString) {
-  int cards[50], n, i;
+  int cards[STRING_CARDS], n, i;
   char *p;
 
   n = (*deck->maskToCards)(cardMask, cards);
@@ -42,7 +49,7 @@ GenericDeck_maskToString(Deck *deck, void *cardMask, char *outString) {
 
 int 
 GenericDeck_printMask(Deck *deck, void *cardMask) {
-  char outString[150];
+  char outString[300];
   int r;
 
   r = GenericDeck_maskToString(deck, cardMask, outString);
