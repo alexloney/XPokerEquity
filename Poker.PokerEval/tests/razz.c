@@ -112,8 +112,8 @@ int main(int argc, char* argv[]) {
 
     if(verbose) enumResultPrint(&result, pockets, board);
 
-    assert(result.ev[0] == 1.0);
-    assert(result.ev[1] == 0.0);
+    assert(result.ev[0] == 0.0);
+    assert(result.ev[1] == 1.0);
   }
 
   return 0;

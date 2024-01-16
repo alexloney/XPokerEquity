@@ -62,6 +62,7 @@ jobs:
           [ $(./build/Poker.PokerEval/enumtest3 | md5sum | awk '{print $1}') = 8eca9e9a0aa0e4ad71acafbc8a93da4a ]
           [ $(./build/Poker.PokerEval/enumtest5 | md5sum | awk '{print $1}') = 74c0f1347023859feab2275dc8c33ef1 ]
           [ $(./build/Poker.PokerEval/enumtest7 | md5sum | awk '{print $1}') = 02d548445d51f7ddf2b99ff878b49277 ]
+          
           ./build/Poker.PokerEval/razz
           ./build/Poker.PokerEval/poker_wrapper
           ./build/Poker.PokerEval/pokenum -h Ac 7c - 5s 4s - Ks Kd -- 7h 2c 3h
