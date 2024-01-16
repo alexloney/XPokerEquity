@@ -4,19 +4,20 @@
  *
  *  Copyright (C) 1994-99    Clifford T. Matthews, Brian Goetz
  *
- *  This package is free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; version 2 dated June, 1991.
+ * This program gives you software freedom; you can copy, convey,
+ * propagate, redistribute and/or modify this program under the terms of
+ * the GNU General Public License (GPL) as published by the Free Software
+ * Foundation (FSF), either version 3 of the License, or (at your option)
+ * any later version of the GPL published by the FSF.
  *
- *  This package is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * General Public License for more details.
  *
- *  You should have received a copy of the GNU General Public License
- *  along with this package; if not, write to the Free Software
- *  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
- *  MA 02110-1301, USA.
+ * You should have received a copy of the GNU General Public License along
+ * with this program in a file in the toplevel directory called "GPLv3".
+ * If not, see <http://www.gnu.org/licenses/>.
  */
 
 #include "poker_defs.h"
@@ -37,6 +38,8 @@
 #ifdef HAVE_UNISTD_H
 #include <unistd.h>
 #endif
+
+#include <string.h>
 
 typedef enum {
   MAY_HAVE_FOUR_OF_A_KIND  = (1 << 0),
@@ -60,16 +63,31 @@ static uint8 may_have[MAY_HAVE_COMBINATIONS][StdDeck_N_RANKMASKS / 8];
 static void compute_cases (void);
 static void print_cases (void);
 
+#define PREAMBLE_FRAG "evx_preamble.cfrag"
+
+/*
+ * Pass in path to the pre-amble as first argument so we can separate build
+ * from source directory.
+ */
+
 int
 main (int argc, char** argv)
 {
+  char *frag_path;
   FILE *fp;
 
+  if (argc != 2) {
+      fprintf (stderr, "Usage: %s path/evx_preamble.cfrag\n", argv[0]);
+      return -1;
+  }
+  frag_path = malloc (strlen (argv[1]) + 1 + strlen (PREAMBLE_FRAG) + 1);
+  sprintf(frag_path, "%s/" PREAMBLE_FRAG, argv[1]);
+  
   /* Copy the preamble to stdout. */
-  fp = fopen ("evx_preamble.cfrag", "r");
+  fp = fopen (frag_path, "r");
   if (fp == NULL) {
-      fprintf (stderr, "Unable to read evx_preamble.c\n");
-      exit (-1);
+      fprintf (stderr, "Unable to read %s\n", frag_path);
+      return -1;
     }
   puts("/* This file is machine-generated -- DO NOT EDIT! */\n");
   {
@@ -81,6 +99,7 @@ main (int argc, char** argv)
     (void)fread (p, sbuf.st_size, 1, fp);
     p[sbuf.st_size] = 0;
     printf (p, CARDS_DEALT);
+    free(p);
   }
   fclose (fp);
 

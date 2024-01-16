@@ -1,19 +1,20 @@
 /*
  *  Copyright 2006 Loic Dachary <loic@dachary.org> 
  *
- *  This package is free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; version 2 dated June, 1991.
+ * This program gives you software freedom; you can copy, convey,
+ * propagate, redistribute and/or modify this program under the terms of
+ * the GNU General Public License (GPL) as published by the Free Software
+ * Foundation (FSF), either version 3 of the License, or (at your option)
+ * any later version of the GPL published by the FSF.
  *
- *  This package is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * General Public License for more details.
  *
- *  You should have received a copy of the GNU General Public License
- *  along with this package; if not, write to the Free Software
- *  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
- *  MA 02110-1301, USA.
+ * You should have received a copy of the GNU General Public License along
+ * with this program in a file in the toplevel directory called "GPLv3".
+ * If not, see <http://www.gnu.org/licenses/>.
  */
 
 #ifndef __POKER_WRAPPER_H__
@@ -25,32 +26,32 @@
 
 extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_N_CARDS(void);
 extern POKEREVAL_EXPORT StdDeck_CardMask wrap_StdDeck_MASK(int index);
-extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Rank_2();
-extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Rank_3();
-extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Rank_4();
-extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Rank_5();
-extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Rank_6();
-extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Rank_7();
-extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Rank_8();
-extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Rank_9();
-extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Rank_TEN();
-extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Rank_JACK();
-extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Rank_QUEEN();
-extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Rank_KING();
-extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Rank_ACE();
-extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Rank_COUNT();
-extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Rank_FIRST();
-extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Rank_LAST();
+extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Rank_2(void);
+extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Rank_3(void);
+extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Rank_4(void);
+extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Rank_5(void);
+extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Rank_6(void);
+extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Rank_7(void);
+extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Rank_8(void);
+extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Rank_9(void);
+extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Rank_TEN(void);
+extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Rank_JACK(void);
+extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Rank_QUEEN(void);
+extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Rank_KING(void);
+extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Rank_ACE(void);
+extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Rank_COUNT(void);
+extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Rank_FIRST(void);
+extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Rank_LAST(void);
 extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_RANK(unsigned int index);
 extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_SUIT(unsigned int index);
 extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_MAKE_CARD(unsigned int rank, unsigned int suit);
-extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Suit_HEARTS();
-extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Suit_DIAMONDS();
-extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Suit_CLUBS();
-extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Suit_SPADES();
-extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Suit_FIRST();
-extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Suit_LAST();
-extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Suit_COUNT();
+extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Suit_HEARTS(void);
+extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Suit_DIAMONDS(void);
+extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Suit_CLUBS(void);
+extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Suit_SPADES(void);
+extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Suit_FIRST(void);
+extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Suit_LAST(void);
+extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_Suit_COUNT(void);
 extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_CardMask_SPADES(StdDeck_CardMask cm);
 extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_CardMask_CLUBS(StdDeck_CardMask cm);
 extern POKEREVAL_EXPORT unsigned int wrap_StdDeck_CardMask_DIAMONDS(StdDeck_CardMask cm);
@@ -67,7 +68,7 @@ extern POKEREVAL_EXPORT StdDeck_CardMask wrap_StdDeck_CardMask_SET(StdDeck_CardM
 extern POKEREVAL_EXPORT StdDeck_CardMask wrap_StdDeck_CardMask_UNSET(StdDeck_CardMask mask, unsigned int index);
 extern POKEREVAL_EXPORT int wrap_StdDeck_CardMask_CARD_IS_SET(StdDeck_CardMask mask, unsigned int index);
 extern POKEREVAL_EXPORT int wrap_StdDeck_CardMask_ANY_SET(StdDeck_CardMask mask1, StdDeck_CardMask mask2);
-extern POKEREVAL_EXPORT StdDeck_CardMask wrap_StdDeck_CardMask_RESET();
+extern POKEREVAL_EXPORT StdDeck_CardMask wrap_StdDeck_CardMask_RESET(void);
 extern POKEREVAL_EXPORT int wrap_StdDeck_CardMask_IS_EMPTY(StdDeck_CardMask mask);
 extern POKEREVAL_EXPORT int wrap_StdDeck_CardMask_EQUAL(StdDeck_CardMask mask1, StdDeck_CardMask mask2);
 
