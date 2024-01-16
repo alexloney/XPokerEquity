@@ -12,6 +12,8 @@ jobs:
           cd build
           cmake ..
           make
+          ls -larth
+          ls -larth Poker.PokerEval/
       - name: Store Build
         uses: actions/upload-artifact@v2
         with:
@@ -42,6 +44,8 @@ jobs:
           path: build
       - name: Test
         run: |
+          ls -larth
+          ls -larth build/
           chmod +x ./build/PokerEquityTest
           chmod +x ./build/joktest1
           chmod +x ./build/enumtest1
