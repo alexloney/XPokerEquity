@@ -22,15 +22,16 @@
 
 #include "targetver.h"
 
-#include <conio.h>
-
 #include <stdio.h>
+
+#ifdef WIN32
 #include <tchar.h>
+#endif
 
 #include <vector>
 #include <algorithm>
 
-#include "..\Poker.PokerEval\include\enumerate.h"
-#include "..\Poker.PokerEval\include\inlines\eval.h"
+#include "../Poker.PokerEval/include/enumerate.h"
+#include "../Poker.PokerEval/include/inlines/eval.h"
 
 using namespace std;

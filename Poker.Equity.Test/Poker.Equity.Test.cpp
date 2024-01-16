@@ -19,14 +19,16 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
-#include "..\Poker.Equity\HoldemCalculator.h"
-#include "..\Poker.Equity\PGTRACE.H"
+#include "../Poker.Equity/HoldemCalculator.h"
+#include "../Poker.Equity/PGTRACE.H"
+
+#include <iostream>
 
 int errorCount = 0;
 
 void performMatchup(const char* hands, const char* board, const char* dead, int numberOfTrials, bool withExhaustive, double *expected);
 
-int _tmain(int argc, _TCHAR* argv[])
+int main(int argc, char** argv)
 {
 	// First, let's demonstrate how you'd perform a simple calculation
 
@@ -108,10 +110,9 @@ int _tmain(int argc, _TCHAR* argv[])
 		performMatchup("TsTc|A2+,22+|QQ+,AQ+", NULL, NULL, numberOfTrials, false, expected);
 	}
 
-	printf("\n\nAll tests concluded with %d errors.", errorCount);
-	getch();
+	printf("\n\nAll tests concluded with %d errors.\n", errorCount);
 
-	return 0;
+	return errorCount;
 }
 
 

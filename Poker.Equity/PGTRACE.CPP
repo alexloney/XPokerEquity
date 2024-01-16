@@ -18,13 +18,15 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-#include "StdAfx.h"
+#include "stdafx.h"
 #include "PGTRACE.H"
 
 
 #include <stdio.h>
 #include <stdarg.h>
+#ifdef WIN32
 #include <windows.h>
+#endif
 
 void _trace(char *fmt, ...)
 {

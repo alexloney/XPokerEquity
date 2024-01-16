@@ -11,6 +11,7 @@ have the input rank.  This is a quick way to mask off all the cards of
 a specific rank.
  */
 
+#ifdef _MSC_VER
 StdDeck_CardMask StdDeck_maskRankTable[13] = { 
       { 0xfffefffefffefffei64 }  ,
       { 0xfffdfffdfffdfffdi64 }  ,
@@ -26,3 +27,20 @@ StdDeck_CardMask StdDeck_maskRankTable[13] = {
       { 0xf7fff7fff7fff7ffi64 }  ,
       { 0xefffefffefffefffi64 }  
 };
+#else
+StdDeck_CardMask StdDeck_maskRankTable[13] = { 
+      { 0xfffefffefffefffell }  ,
+      { 0xfffdfffdfffdfffdll }  ,
+      { 0xfffbfffbfffbfffbll }  ,
+      { 0xfff7fff7fff7fff7ll }  ,
+      { 0xffefffefffefffefll }  ,
+      { 0xffdfffdfffdfffdfll }  ,
+      { 0xffbfffbfffbfffbfll }  ,
+      { 0xff7fff7fff7fff7fll }  ,
+      { 0xfefffefffefffeffll }  ,
+      { 0xfdfffdfffdfffdffll }  ,
+      { 0xfbfffbfffbfffbffll }  ,
+      { 0xf7fff7fff7fff7ffll }  ,
+      { 0xefffefffefffefffll }  
+};
+#endif

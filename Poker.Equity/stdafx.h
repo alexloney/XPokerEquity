@@ -27,19 +27,25 @@
 
 #include "targetver.h"
 
+#ifdef WIN32
 #define WIN32_LEAN_AND_MEAN             // Exclude rarely-used stuff from Windows headers
 // Windows Header Files:
 #include <windows.h>
+#else
+#include <cstdint>
+typedef char TCHAR;
+#endif
 
 #include <vector>
 #include <algorithm>
 #include <list>
+#include <cstring>
 
 #include "mtrand.h"
  
 
-#include "..\Poker.PokerEval\include\enumerate.h"
-#include "..\Poker.PokerEval\include\inlines\eval.h"
+#include "../Poker.PokerEval/include/enumerate.h"
+#include "../Poker.PokerEval/include/inlines/eval.h"
 
 #include "PGTRACE.H"
 

@@ -18,7 +18,7 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-#include "StdAfx.h"
+#include "stdafx.h"
 #include "HoldemHandDistribution.h"
 #include "AgnosticHand.h"
 #include "CardConverter.h"
